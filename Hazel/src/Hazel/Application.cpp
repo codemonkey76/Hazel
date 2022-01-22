@@ -5,6 +5,7 @@
 
 #include "Input.h"
 #include "Hazel/Renderer/Renderer.h"
+#include "Hazel/KeyCodes.h"
 
 namespace Hazel {
 
@@ -168,6 +169,7 @@ namespace Hazel {
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+		dispatcher.Dispatch<KeyPressedEvent>(BIND_EVENT_FN(OnKeyPressed));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
@@ -185,7 +187,7 @@ namespace Hazel {
 			RenderCommand::Clear();
 
 			//m_Camera.SetPosition({ 0.5f, 0.5f, 0.0f });
-			m_Camera.SetRotation(45.0f);
+			//m_Camera.SetRotation(45.0f);
 
 			Renderer::BeginScene(m_Camera);
 			
@@ -205,7 +207,29 @@ namespace Hazel {
 			m_Window->OnUpdate();
 		}
 	}
-
+	bool Application::OnKeyPressed(KeyPressedEvent& e)
+	{
+		HZ_INFO("Key Pressed: {0}", (char)e.GetKeyCode());
+		glm::vec3 pos = m_Camera.GetPosition();
+		switch (e.GetKeyCode())
+		{
+			case HZ_KEY_W:
+				pos.y += 0.1f;
+				break;
+			case HZ_KEY_S:
+				pos.y -= 0.1f;
+				break;
+			case HZ_KEY_A:
+				pos.x -= 0.1f;
+				break;
+			case HZ_KEY_D:
+				pos.x += 0.1f;
+				break;
+		}
+		m_Camera.SetPosition(pos);
+		
+		return true;
+	}
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{
 		m_Running = false;
