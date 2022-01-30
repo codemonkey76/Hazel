@@ -41,7 +41,7 @@ namespace Hazel {
         m_Shaders[name] = shader;
     }
 
-    Hazel::Ref<Hazel::Shader> ShaderLibrary::Load(const std::string& filepath)
+    Ref<Shader> ShaderLibrary::Load(const std::string& filepath)
     {
         auto shader = Shader::Create(filepath);
         Add(shader);
@@ -49,7 +49,7 @@ namespace Hazel {
         return shader;
     }
 
-    Hazel::Ref<Hazel::Shader> ShaderLibrary::Load(const std::string& name, const std::string& filepath)
+    Ref<Shader> ShaderLibrary::Load(const std::string& name, const std::string& filepath)
     {
         auto shader = Shader::Create(filepath);
         Add(name, shader);
@@ -57,7 +57,7 @@ namespace Hazel {
         return shader;
     }
 
-    Hazel::Ref<Hazel::Shader> ShaderLibrary::Get(const std::string& name)
+    Ref<Shader> ShaderLibrary::Get(const std::string& name)
     {
         HZ_CORE_ASSERT(Exists(name), "Shader not found!");
         return m_Shaders[name];
