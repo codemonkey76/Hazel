@@ -1,10 +1,17 @@
 #include <Hazel.h>
 
+
+// ---Entry Point---------------------
+#include <Hazel/Core/EntryPoint.h>
+// -----------------------------------
+
 #include "Platform/OpenGL/OpenGLShader.h"
 
 #include "imgui/imgui.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+#include "Sandbox2D.h"
 
 class ExampleLayer : public Hazel::Layer
 {
@@ -12,7 +19,7 @@ public:
     ExampleLayer()
         : Layer("Example"), m_Cameracontroller(1280.0f / 720.0f, true)
     {
-        m_VertexArray.reset(Hazel::VertexArray::Create());
+        m_VertexArray = Hazel::VertexArray::Create();
 
         float vertices[3 * 7] = {
             -0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -21,7 +28,7 @@ public:
         };
 
         Hazel::Ref<Hazel::VertexBuffer> m_VertexBuffer;
-        m_VertexBuffer.reset(Hazel::VertexBuffer::Create(vertices, sizeof(vertices)));
+        m_VertexBuffer = Hazel::VertexBuffer::Create(vertices, sizeof(vertices));
 
 
         Hazel::BufferLayout layout = {
@@ -35,11 +42,11 @@ public:
 
         uint32_t indices[3] = { 0, 1, 2 };
         Hazel::Ref<Hazel::IndexBuffer> m_IndexBuffer;
-        m_IndexBuffer.reset(Hazel::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+        m_IndexBuffer = Hazel::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 
         m_VertexArray->SetIndexBuffer(m_IndexBuffer);
 
-        m_SquareVA.reset(Hazel::VertexArray::Create());
+        m_SquareVA = Hazel::VertexArray::Create();
 
         float squareVertices[5 * 4] = {
             -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -49,7 +56,7 @@ public:
         };
 
         Hazel::Ref<Hazel::VertexBuffer> squareVB;
-        squareVB.reset(Hazel::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+        squareVB = Hazel::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 
 
         squareVB->SetLayout({
@@ -61,7 +68,7 @@ public:
 
         uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
         Hazel::Ref<Hazel::IndexBuffer> squareIB;
-        squareIB.reset(Hazel::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+        squareIB = Hazel::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 
         m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -225,7 +232,8 @@ class Sandbox : public Hazel::Application
 public:
     Sandbox()
     {
-        PushLayer(new ExampleLayer());
+        // PushLayer(new ExampleLayer());
+        PushLayer(new Sandbox2D());
     }
 
     ~Sandbox()
