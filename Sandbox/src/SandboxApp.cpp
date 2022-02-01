@@ -5,9 +5,7 @@
 #include <Hazel/Core/EntryPoint.h>
 // -----------------------------------
 
-#include "Platform/OpenGL/OpenGLShader.h"
-
-#include "imgui/imgui.h"
+#include <imgui/imgui.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -27,8 +25,7 @@ public:
              0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
         };
 
-        Hazel::Ref<Hazel::VertexBuffer> m_VertexBuffer;
-        m_VertexBuffer = Hazel::VertexBuffer::Create(vertices, sizeof(vertices));
+        Hazel::Ref<Hazel::VertexBuffer> m_VertexBuffer = Hazel::VertexBuffer::Create(vertices, sizeof(vertices));
 
 
         Hazel::BufferLayout layout = {
@@ -41,8 +38,7 @@ public:
 
 
         uint32_t indices[3] = { 0, 1, 2 };
-        Hazel::Ref<Hazel::IndexBuffer> m_IndexBuffer;
-        m_IndexBuffer = Hazel::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
+        Hazel::Ref<Hazel::IndexBuffer> m_IndexBuffer = Hazel::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 
         m_VertexArray->SetIndexBuffer(m_IndexBuffer);
 
@@ -55,8 +51,7 @@ public:
              -0.5f,  0.5f, 0.0f, 0.0f, 1.0f
         };
 
-        Hazel::Ref<Hazel::VertexBuffer> squareVB;
-        squareVB = Hazel::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
+        Hazel::Ref<Hazel::VertexBuffer> squareVB = Hazel::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 
 
         squareVB->SetLayout({
@@ -67,8 +62,7 @@ public:
         m_SquareVA->AddVertexBuffer(squareVB);
 
         uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-        Hazel::Ref<Hazel::IndexBuffer> squareIB;
-        squareIB = Hazel::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
+        Hazel::Ref<Hazel::IndexBuffer> squareIB = Hazel::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 
         m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -153,8 +147,8 @@ public:
         m_Texture = Hazel::Texture2D::Create("assets/textures/Checkerboard.png");
         m_ChernoLogoTexture = Hazel::Texture2D::Create("assets/textures/ChernoLogo.png");
 
-        std::dynamic_pointer_cast<Hazel::OpenGLShader>(textureShader)->Bind();
-        std::dynamic_pointer_cast<Hazel::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
+        textureShader->Bind();
+        textureShader->SetInt("u_Texture", 0);
 
     }
 
@@ -174,8 +168,9 @@ public:
 
         glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-        std::dynamic_pointer_cast<Hazel::OpenGLShader>(m_FlatColorShader)->Bind();
-        std::dynamic_pointer_cast<Hazel::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+        m_FlatColorShader->Bind();
+        m_FlatColorShader->SetFloat3("u_Color", m_SquareColor);
+
         for (int y = 0; y < 20; y++)
         {
             for (int x = 0; x < 20; x++)

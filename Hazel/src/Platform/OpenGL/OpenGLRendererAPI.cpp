@@ -1,10 +1,12 @@
 #include "hzpch.h"
-#include "OpenGLRendererAPI.h"
+#include "Platform/OpenGL/OpenGLRendererAPI.h"
 #include <glad/glad.h>
 namespace Hazel {
 
     void OpenGLRendererAPI::Init()
     {
+        HZ_PROFILE_FUNCTION();
+
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         
