@@ -1,7 +1,5 @@
-[07:03:29] [info] HAZEL: Creating window Hazel Engine (1280, 720)
-[07:03:29] [info] HAZEL: OpenGL Info:
-[07:03:29] [info] HAZEL:   Vendor: NVIDIA Corporation
-[07:03:29] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
-[07:03:29] [info] HAZEL:   Version: 4.6.0 NVIDIA 497.29
-[07:03:35] [warning] HAZEL: Window Resized to: 0, 0
-[07:03:36] [warning] HAZEL: Window Resized to: 1280, 720
+[08:05:52] [info] HAZEL: Creating window Hazel Engine (1280, 720)
+[08:05:53] [info] HAZEL: OpenGL Info:
+[08:05:53] [info] HAZEL:   Vendor: NVIDIA Corporation
+[08:05:53] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
+[08:05:53] [info] HAZEL:   Version: 4.6.0 NVIDIA 497.29
