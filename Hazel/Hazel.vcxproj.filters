@@ -1330,5 +1330,7 @@
     </ClCompile>
     <ClCompile Include="src\Hazel\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Hazel\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\Hazel\Core\Input.cpp" />
+    <ClCompile Include="src\Hazel\Core\Window.cpp" />
   </ItemGroup>
 </Project>
