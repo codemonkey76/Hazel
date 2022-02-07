@@ -25,4 +25,7 @@
     <ClInclude Include="src\ParticleSystem.h" />
     <ClInclude Include="src\Random.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Users\shane\Documents\RPGpack_sheet_2X.png" />
+  </ItemGroup>
 </Project>

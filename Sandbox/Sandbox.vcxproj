@@ -151,6 +151,9 @@
     <ClInclude Include="src\Random.h" />
     <ClInclude Include="src\Sandbox2D.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Users\shane\Documents\RPGpack_sheet_2X.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
