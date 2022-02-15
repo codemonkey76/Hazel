@@ -1,5 +1,5 @@
-[08:32:16] [info] HAZEL: Creating window Hazel Engine (1280, 720)
-[08:32:16] [info] HAZEL: OpenGL Info:
-[08:32:16] [info] HAZEL:   Vendor: NVIDIA Corporation
-[08:32:16] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3080/PCIe/SSE2
-[08:32:16] [info] HAZEL:   Version: 4.6.0 NVIDIA 511.65
+[20:15:59] [info] HAZEL: Creating window Hazel Engine (1280, 720)
+[20:16:02] [info] HAZEL: OpenGL Info:
+[20:16:02] [info] HAZEL:   Vendor: NVIDIA Corporation
+[20:16:02] [info] HAZEL:   Renderer: GeForce GTX 1650/PCIe/SSE2
+[20:16:02] [info] HAZEL:   Version: 4.6.0 NVIDIA 457.20
