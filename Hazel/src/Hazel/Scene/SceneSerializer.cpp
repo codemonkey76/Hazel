@@ -29,8 +29,7 @@ namespace YAML {
 
 			rhs.x = node[0].as<float>();
 			rhs.y = node[1].as<float>();
-			rhs.z = node[2].as<float>();
-			node.SetStyle(EmitterStyle::Flow);
+			rhs.z = node[2].as<float>();			
 			return true;
 		}
 	};
