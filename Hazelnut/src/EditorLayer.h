@@ -7,40 +7,50 @@ namespace Hazel {
 
 	class EditorLayer : public Layer
 	{
-	public:
-		EditorLayer();
-		virtual ~EditorLayer() = default;
 
-		virtual void OnAttach() override;
-		virtual void OnDetach() override;
+		public:
+			EditorLayer();
+			virtual ~EditorLayer() = default;
 
-		void OnUpdate(Timestep ts) override;
-		virtual void OnImGuiRender() override;
-		void OnEvent(Event& e) override;
-	private:
-		Hazel::OrthographicCameraController m_CameraController;
+			virtual void OnAttach() override;
+			virtual void OnDetach() override;
 
-		// Temp
-		Ref<VertexArray> m_SquareVA;
-		Ref<Shader> m_FlatColorShader;
-		Ref<Framebuffer> m_Framebuffer;
+			void OnUpdate(Timestep ts) override;
+			virtual void OnImGuiRender() override;
+			void OnEvent(Event& e) override;
 
-		Ref<Scene> m_ActiveScene;
-		Entity m_SquareEntity;
-		Entity m_CameraEntity;
-		Entity m_SecondCamera;
+		private:
+			bool OnKeyPressed(KeyPressedEvent& e);
+			void OpenScene();
+			void SaveSceneAs();
+			void SaveScene();
+			void NewScene();
 
-		bool m_PrimaryCamera = true;
+		private:
+			Hazel::OrthographicCameraController m_CameraController;
 
-		Ref<Texture2D> m_CheckerboardTexture;
+			// Temp
+			Ref<VertexArray> m_SquareVA;
+			Ref<Shader> m_FlatColorShader;
+			Ref<Framebuffer> m_Framebuffer;
 
-		bool m_ViewportFocused = false, m_ViewportHovered = false;
-		glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
+			Ref<Scene> m_ActiveScene;
+			Entity m_SquareEntity;
+			Entity m_CameraEntity;
+			Entity m_SecondCamera;
 
-		glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+			bool m_PrimaryCamera = true;
 
-		// Panels
-		SceneHierarchyPanel m_SceneHierarchyPanel;
+			Ref<Texture2D> m_CheckerboardTexture;
+
+			bool m_ViewportFocused = false, m_ViewportHovered = false;
+			glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
+
+			glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+
+			// Panels
+			SceneHierarchyPanel m_SceneHierarchyPanel;
+
 	};
 
 }
