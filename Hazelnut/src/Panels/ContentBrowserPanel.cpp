@@ -75,7 +75,6 @@ namespace Hazel {
 		ImGui::Columns(1);
 
 		ImGui::SliderFloat("Thumbnail Size", &thumbnailSize, 16, 512);
-		HZ_CORE_INFO("Thumbnail size: %s", thumbnailSize);
 		ImGui::SliderFloat("Padding", &padding, 0, 32);
 
 		// TODO: Status bar
