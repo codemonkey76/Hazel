@@ -27,7 +27,7 @@ namespace Hazel {
 
 		static float padding = 16.0f;
 		static float thumbnailSize = 128.0f;
-		float cellSize = thumbnailSize - padding;
+		float cellSize = thumbnailSize + padding;
 
 		float panelWidth = ImGui::GetContentRegionAvail().x;
 		int columnCount = (int)(panelWidth / cellSize);

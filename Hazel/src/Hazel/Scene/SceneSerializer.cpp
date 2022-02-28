@@ -396,7 +396,7 @@ namespace Hazel {
 				{
 					auto& cc2d = deserializedEntity.AddComponent<CircleCollider2DComponent>();
 					cc2d.Offset = circleCollider2DComponent["Offset"].as<glm::vec2>();
-					cc2d.Radius = circleCollider2DComponent["Size"].as<float>();
+					cc2d.Radius = circleCollider2DComponent["Radius"].as<float>();
 					cc2d.Density = circleCollider2DComponent["Density"].as<float>();
 					cc2d.Friction = circleCollider2DComponent["Friction"].as<float>();
 					cc2d.Restitution = circleCollider2DComponent["Restitution"].as<float>();
