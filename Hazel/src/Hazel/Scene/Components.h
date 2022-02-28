@@ -1,8 +1,8 @@
 #pragma once
 
 #include "SceneCamera.h"
-#include "Hazel/Renderer/Texture.h"
 #include "Hazel/Core/UUID.h"
+#include "Hazel/Renderer/Texture.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
